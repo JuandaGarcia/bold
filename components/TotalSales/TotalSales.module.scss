@@ -1,0 +1,33 @@
+.total_sales {
+	border-radius: var(--radius);
+	background: var(--color-3);
+	&__title {
+		display: inline-block;
+		padding: 1rem;
+		background: var(--gradient-1);
+		color: var(--color-3);
+		margin: 0;
+		width: 100%;
+		font-size: 1rem;
+		font-weight: normal;
+		border-top-left-radius: inherit;
+		border-top-right-radius: inherit;
+	}
+	&__total {
+		font-size: 2rem;
+		margin: 0;
+		margin-top: var(--app-padding);
+		font-weight: bold;
+		text-align: center;
+		background: var(--gradient-1);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+	&__text {
+		color: var(--color-1);
+		text-align: center;
+		margin-top: 0.5rem;
+		margin-bottom: var(--app-padding);
+	}
+}

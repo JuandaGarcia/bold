@@ -1,0 +1,54 @@
+@import '../../styles/responsive';
+
+.filters {
+	display: grid;
+	gap: var(--app-padding);
+	height: max-content;
+	color: var(--color-1);
+	@include responsive {
+		grid-column: span 2;
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+	&__period {
+		grid-column: 1 / -1;
+		display: grid;
+		grid-template-columns: 1fr 1.5fr 1fr;
+		background: var(--color-3);
+		padding: 5px;
+		user-select: none;
+		border-radius: 2rem;
+		@include responsive {
+			grid-template-columns: 1fr 1fr 1fr;
+		}
+		&__label {
+			position: relative;
+			$background: #d2d4e1;
+			&__input {
+				position: absolute;
+				appearance: none;
+				&:checked + span {
+					background: $background;
+					font-weight: bold;
+				}
+			}
+			&__span {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				height: 40px;
+				border-radius: 2rem;
+				cursor: pointer;
+				transition: background-color 0.2s linear;
+				&:hover {
+					font-weight: bold;
+					background: $background;
+				}
+			}
+		}
+	}
+	&__type {
+		@include responsive {
+			grid-column: 3 / 4;
+		}
+	}
+}

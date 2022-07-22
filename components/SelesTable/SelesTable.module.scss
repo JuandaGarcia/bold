@@ -1,0 +1,11 @@
+.sales_table {
+	grid-column: 1 / -1;
+	&__header {
+		background: var(--gradient-1);
+		color: var(--color-3);
+		font-size: 1.2rem;
+		padding: 0.8rem var(--app-padding);
+		border-top-left-radius: var(--radius);
+		border-top-right-radius: var(--radius);
+	}
+}

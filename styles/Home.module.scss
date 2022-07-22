@@ -1,0 +1,15 @@
+@import './responsive';
+
+.home {
+	&__main {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: var(--app-padding);
+		max-width: var(--max-width);
+		padding: var(--app-padding);
+		margin: 0 auto;
+		@include responsive {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+}
