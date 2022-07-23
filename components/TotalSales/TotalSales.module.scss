@@ -1,6 +1,7 @@
 .total_sales {
 	border-radius: var(--radius);
 	background: var(--color-3);
+	min-height: 181px;
 	&__title {
 		display: flex;
 		align-items: center;

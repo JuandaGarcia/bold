@@ -2,13 +2,15 @@ import { Sale } from 'utils/types/Sale'
 import { TbLink } from 'react-icons/tb'
 import { BiCalculator } from 'react-icons/bi'
 import s from './SelesTable.module.scss'
+import { formatMoney } from 'utils/formatMoney'
 
 type Props = {
 	data: Sale[]
+	loading: boolean
 }
-const SelesTable = ({ data }: Props) => {
+const SelesTable = ({ data, loading }: Props) => {
 	return (
-		<section className={s.sales_table}>
+		<section className={s.sales_table} data-loading={loading}>
 			<p className={s.sales_table__header}>Tus ventas hoy</p>
 			<div className={s.sales_table__container}>
 				<table className={s.sales_table__container__table}>
@@ -76,7 +78,7 @@ const SelesTable = ({ data }: Props) => {
 												s.sales_table__container__table__tr__td__amount__number
 											}
 										>
-											${sale.amount}
+											{formatMoney(sale.amount)}
 										</span>
 										{sale.bold_commission && (
 											<>
@@ -92,7 +94,7 @@ const SelesTable = ({ data }: Props) => {
 														s.sales_table__container__table__tr__td__amount__commission_number
 													}
 												>
-													-${sale.bold_commission}
+													-{formatMoney(sale.bold_commission)}
 												</span>
 											</>
 										)}
