@@ -3,9 +3,12 @@ import Header from 'components/Header/Header'
 import SelesTable from 'components/SelesTable/SelesTable'
 import SEO from 'components/SEO/SEO'
 import TotalSales from 'components/TotalSales/TotalSales'
+import useData from 'hooks/useData'
 import s from 'styles/Home.module.scss'
 
 const Home = () => {
+	const { data } = useData()
+
 	return (
 		<>
 			<SEO />
@@ -13,7 +16,7 @@ const Home = () => {
 			<main className={s.home__main}>
 				<TotalSales />
 				<Filters />
-				<SelesTable />
+				<SelesTable data={data} />
 			</main>
 		</>
 	)

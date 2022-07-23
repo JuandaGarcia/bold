@@ -1,5 +1,6 @@
 import BoldLogo from 'components/BoldLogo/BoldLogo'
 import Link from 'next/link'
+import { FiHelpCircle } from 'react-icons/fi'
 import s from './Header.module.scss'
 
 const Header = () => {
@@ -18,6 +19,7 @@ const Header = () => {
 								href="https://bold.co/"
 								target="_blank"
 								rel="noopener noreferrer"
+								className={s.header__content__list__link}
 							>
 								Mi negocio
 							</a>
@@ -27,8 +29,9 @@ const Header = () => {
 								href="https://ayuda.bold.co/"
 								target="_blank"
 								rel="noopener noreferrer"
+								className={s.header__content__list__link}
 							>
-								Ayuda
+								Ayuda <FiHelpCircle />
 							</a>
 						</li>
 					</ul>

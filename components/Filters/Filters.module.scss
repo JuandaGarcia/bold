@@ -1,10 +1,12 @@
 @import '../../styles/responsive';
 
 .filters {
+	$filter-height: 40px;
 	display: grid;
 	gap: var(--app-padding);
 	height: max-content;
 	color: var(--color-1);
+	grid-template-rows: auto $filter-height;
 	@include responsive {
 		grid-column: span 2;
 		grid-template-columns: 1fr 1fr 1fr;
@@ -30,12 +32,15 @@
 					background: $background;
 					font-weight: bold;
 				}
+				&:focus-visible + span {
+					box-shadow: 0 0 0 3px var(--color-1);
+				}
 			}
 			&__span {
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				height: 40px;
+				height: $filter-height;
 				border-radius: 2rem;
 				cursor: pointer;
 				transition: background-color 0.2s linear;
@@ -47,8 +52,79 @@
 		}
 	}
 	&__type {
+		position: relative;
 		@include responsive {
 			grid-column: 3 / 4;
 		}
+		&__button {
+			color: var(--color-1);
+			background: var(--color-3);
+			border: none;
+			width: 100%;
+			height: $filter-height;
+			border-radius: 10px;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 0.5rem;
+			font-size: 14px;
+		}
+		&__options {
+			width: 100%;
+			border-radius: 10px;
+			background-color: var(--color-3);
+			position: absolute;
+			right: 0;
+			top: 0;
+			box-shadow: 0 2px 5px 2px hsl(0deg 0% 59% / 20%);
+			transform-origin: top;
+			animation: options_animation 0.2s ease-in-out;
+			overflow: hidden;
+			z-index: 1;
+			@include responsive {
+				transform-origin: top right;
+				width: 150%;
+			}
+			&__header {
+				display: grid;
+				height: $filter-height;
+				grid-template-columns: 2rem 1fr 2rem;
+				place-items: center;
+				&__title {
+					text-align: center;
+					grid-column: 2 / 3;
+					font-size: 14px;
+				}
+				&__close {
+					grid-column: 3 / 4;
+					cursor: pointer;
+					background: none;
+				}
+			}
+			&__content {
+				display: grid;
+				gap: 0.5rem;
+				padding: 1rem;
+				padding-top: 0;
+				&__item {
+					cursor: pointer;
+					&__text {
+						margin-left: 0.5rem;
+					}
+				}
+			}
+		}
+	}
+}
+
+@keyframes options_animation {
+	0% {
+		opacity: 0;
+		transform: scale(0.9);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1);
 	}
 }
