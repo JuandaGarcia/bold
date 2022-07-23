@@ -43,7 +43,12 @@ const Home = () => {
 							setTypeFilter={setTypeFilter}
 							setPeriodFilter={setPeriodFilter}
 						/>
-						<SelesTable loading={loading} data={data} />
+						<SelesTable
+							data={data}
+							today={today}
+							loading={loading}
+							periodFilter={periodFilter}
+						/>
 					</>
 				)}
 			</main>

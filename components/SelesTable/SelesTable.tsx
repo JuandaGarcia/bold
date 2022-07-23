@@ -3,15 +3,26 @@ import { TbLink } from 'react-icons/tb'
 import { BiCalculator } from 'react-icons/bi'
 import s from './SelesTable.module.scss'
 import { formatMoney } from 'utils/formatMoney'
+import { PeriodFilter } from 'utils/types/App'
+import { monthNames } from 'utils/constants'
 
 type Props = {
 	data: Sale[]
+	today: string
 	loading: boolean
+	periodFilter: PeriodFilter
 }
-const SelesTable = ({ data, loading }: Props) => {
+const SelesTable = ({ data, loading, periodFilter, today }: Props) => {
 	return (
 		<section className={s.sales_table} data-loading={loading}>
-			<p className={s.sales_table__header}>Tus ventas hoy</p>
+			<p className={s.sales_table__header}>
+				Tus ventas{' '}
+				{periodFilter === 'day'
+					? 'hoy'
+					: periodFilter === 'week'
+					? 'esta semana'
+					: `en ${monthNames[new Date(today).getMonth()]}`}
+			</p>
 			<div className={s.sales_table__container}>
 				<table className={s.sales_table__container__table}>
 					<thead>
